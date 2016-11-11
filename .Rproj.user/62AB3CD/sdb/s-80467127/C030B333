@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "context('Do we have the expected response')\n\ntest_that('Basic call works', {\n  url <- 'www.google.com'\n  api_key <- '1f5295f58ebd7f5622c803adf3bf40ce16139a6f'\n\n  rank          <- get_rank(url, api_key)\n  domain_rating <- get_domain_rating(url, api_key)\n  ref_domains   <- get_refering_domains(url, api_key)\n\n  expect_is(rank, 'integer')\n  expect_is(domain_rating, 'integer')\n  expect_is(ref_domains, 'list')\n})\n",
+    "created" : 1473160253450.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2195399982",
+    "id" : "C030B333",
+    "lastKnownWriteTime" : 1473161252,
+    "last_content_update" : 1473161252608,
+    "path" : "~/Documents/APIs/ahrefs/tests/testthat/test.R",
+    "project_path" : "tests/testthat/test.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(testthat)\nlibrary(ahrefs)\n\ntest_check(\"ahrefs\")\n",
+    "created" : 1473160204690.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "29888847",
+    "id" : "49C5EB94",
+    "lastKnownWriteTime" : 1473160190,
+    "last_content_update" : 1473160190,
+    "path" : "~/Documents/APIs/ahrefs/tests/testthat.R",
+    "project_path" : "tests/testthat.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
