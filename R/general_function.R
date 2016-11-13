@@ -87,7 +87,8 @@ get_ahrefs_data <- function(target,
   return(structure(
     list(
       content = parsed,
-      response = response
+      response = response,
+      parameters = parameters
     ),
     class = 'ahrefs_api'
   ))

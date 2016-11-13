@@ -4,13 +4,13 @@
 \alias{get_ahrefs_data}
 \title{Get Data From the AHREF's}
 \usage{
-get_ahrefs_data(target, api_token, from, mode, select = NULL, where = NULL,
+get_ahrefs_data(target, token, from, mode, select = NULL, where = NULL,
   having = NULL, order_by = NULL, offset = 0, limit = 1000)
 }
 \arguments{
 \item{target}{Aim of a request: a domain, a directory or a URL}
 
-\item{api_token}{Authentication token}
+\item{token}{Authentication token}
 
 \item{from}{Table to select data from}
 
