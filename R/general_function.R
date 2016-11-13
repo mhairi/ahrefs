@@ -63,7 +63,7 @@ get_ahrefs_data <- function(target,
   parameters <- Filter(function(x) !is.null(x), parameters)
 
   # Set user agent
-  ua <- user_agent("http://github.com/mhairi/ahrefs")
+  ua <- httr::user_agent("http://github.com/mhairi/ahrefs")
 
   # Make Request
   url <- httr::modify_url('http://apiv2.ahrefs.com', query = parameters)
