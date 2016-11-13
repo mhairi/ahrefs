@@ -1,5 +1,7 @@
 #' Get AHREF rank
 #'
+#' Depreciated: will be removed soon
+#'
 #' @param url URL we want the rank for
 #' @param api_key API key (also called token)
 #'
@@ -7,7 +9,7 @@
 #' @export
 #'
 #' @examples\dontrun{
-#' get_rank('google.com', '1f5295f58ebd7f5622c803adf3bf40ce16139a6f')
+#' get_rank('google.com', ahrefs_key)
 #' }
 get_rank <- function(url, api_key){
   parameters <- list(
@@ -32,15 +34,9 @@ get_rank <- function(url, api_key){
 }
 
 
-# # of referring domains to ranking page (AHREFs)
-# URL Rating (UR) of ranking URL (AHREFs)
-# Organic Keywords of ranking URL (AHREFs)
-# mean AHREFs Domain Rating of referring domains of ranking URL (AHREFs)
-# STDEV AHREFs Domain Rating of referring domains of ranking URL (AHREFs)
-
-# Domain Rating (DR) of ranking URL (AHREFs)
-
 #' Get Domain Rating
+#'
+#' Depreciated: will be removed soon
 #'
 #' @param url URL we want the rank for
 #' @param api_key API key (also called token)
@@ -49,7 +45,7 @@ get_rank <- function(url, api_key){
 #' @export
 #'
 #' @examples\dontrun{
-#' get_domain_rating('google.com', '1f5295f58ebd7f5622c803adf3bf40ce16139a6f')
+#' get_domain_rating('google.com', ahrefs_key)
 #' }
 get_domain_rating <- function(url, api_key){
 
@@ -76,6 +72,8 @@ get_domain_rating <- function(url, api_key){
 
 #' Get Refering Domains
 #'
+#' Depreciated: will be removed soon
+#'
 #' @param url URL we want the domains for
 #' @param api_key API key (also called token)
 #'
@@ -83,7 +81,7 @@ get_domain_rating <- function(url, api_key){
 #' @export
 #'
 #' @examples\dontrun{
-#' get_refering_domains('google.com', '1f5295f58ebd7f5622c803adf3bf40ce16139a6f')
+#' get_refering_domains('google.com', ahrefs_key)
 #'}
 get_refering_domains <- function(url, api_key, limit = 10){
 
@@ -113,6 +111,8 @@ library(httr)
 
 #' Get URL metrics
 #'
+#' Depreciated: will be removed soon
+#'
 #' @param url URL we metrics for
 #' @param api_key API key (also called token)
 #'
@@ -120,9 +120,9 @@ library(httr)
 #' @export
 #'
 #' @examples\dontrun{
-#' get_metrics('google.com', '1f5295f58ebd7f5622c803adf3bf40ce16139a6f')
+#' get_metrics('google.com', ahrefs_key)
 #'}
-get_metrics <- function(url, api_key = '1f5295f58ebd7f5622c803adf3bf40ce16139a6f'){
+get_metrics <- function(url, api_key){
 
   parameters <- list(
     token =  api_key,
