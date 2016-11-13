@@ -8,9 +8,9 @@
 #' @param from Table to select data from
 #' @param mode Mode of operation: exact, domain, subdomains or prefix
 #' @param select A character vector of columns to select in 'from' table.
-#' @param where "Where" condition to satisfy (see documentation for how to build where conditions)
-#' @param having "Having" condition to satisfy (see documentation for how to build a having conditions)
-#' @param order_by List of columns to sort on (see documentation for how to build order_by conitions)
+#' @param where "Where" condition to satisfy. Use helper function 'make_condition' or see documentation for how to build where conditions manually. Where filters before grouping.
+#' @param having "Having" condition to satisfy. Use helper function 'make_condition' or see documentation for how to build where conditions manually. Having filters after grouping.
+#' @param order_by List of columns to sort on. Use helper function 'make_order' or see documentation for how to build orders by hand.
 #' @param offset Position from which to start returning data
 #' @param limit Number of results to return
 #'
@@ -43,7 +43,9 @@ get_ahrefs_data <- function(target,
   if (limit  %% 1 != 0) stop('Limit must be an integer')
 
   # Change select to format wanted by API
-  if (!is.null(select)) select <- paste0(select, ',')
+  if (!is.null(select)) select <- paste0(select, collapse = ',')
+
+  # Check having and where
 
   parameters <- list(
     target    = target,

@@ -18,11 +18,11 @@ get_ahrefs_data(target, token, from, mode, select = NULL, where = NULL,
 
 \item{select}{A character vector of columns to select in 'from' table.}
 
-\item{where}{"Where" condition to satisfy (see documentation for how to build where conditions)}
+\item{where}{"Where" condition to satisfy. Use helper function 'make_condition' or see documentation for how to build where conditions manually. Where filters before grouping.}
 
-\item{having}{"Having" condition to satisfy (see documentation for how to build a having conditions)}
+\item{having}{"Having" condition to satisfy. Use helper function 'make_condition' or see documentation for how to build where conditions manually. Having filters after grouping.}
 
-\item{order_by}{List of columns to sort on (see documentation for how to build order_by conitions)}
+\item{order_by}{List of columns to sort on. Use helper function 'make_order' or see documentation for how to build orders by hand.}
 
 \item{offset}{Position from which to start returning data}
 
