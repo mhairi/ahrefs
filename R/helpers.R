@@ -22,7 +22,7 @@ print.ahrefs_api <- function(x, ...){
 #' @param operator List of operators to use. Possible operators are: '=', '<>', '<', '<=', '>', '>=', 'subdomain', 'word', 'substring'.
 #' @param value List of values for operator.
 #'
-#' @return A single element URL encoded character vector.
+#' @return A single element character vector.
 #' @export
 #'
 #' @examples
@@ -50,8 +50,6 @@ make_condition <- function(col, operator, value){
   conditions <- Map(to_condition, col, operator, value)
   conditions <- paste(unlist(conditions), collapse = ',')
 
-  conditions <- urltools::url_encode(conditions)
-
   return(conditions)
 }
 
@@ -62,7 +60,7 @@ make_condition <- function(col, operator, value){
 #' @param col Columns for ordering
 #' @param direction Character vector of either 'asc' for accending, or 'desc' for decending.
 #'
-#' @return A single element URL encoded character vector.
+#' @return A single element character vector.
 #' @export
 #'
 #' @examples
@@ -80,8 +78,6 @@ make_order <- function(col, direction = 'asc'){
   orders <- Map(to_order, col, direction)
 
   orders <- paste(unlist(orders), collapse = ',')
-
-  orders <- urltools::url_encode(orders)
 
   return(orders)
 }

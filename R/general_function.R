@@ -19,9 +19,17 @@
 #'
 #' @examples \dontrun{
 #' ahrefs_key <- '123456789'
-#' get_ahrefs_data('mhairihmcneill.com', ahrefs_key, from = 'ahrefs_rank', mode = 'domain')
-#' get_ahrefs_data('mhairihmcneill.com/blog', ahrefs_key, from = 'metrics_extended', mode = 'exact')
-#' get_ahrefs_data('mhairihmcneill.com/blog', ahrefs_key, from = 'refdomains', mode = 'prefix', limit = 10)
+#' url <- 'ahrefs.com/api/documentation/'
+#' get_ahrefs_data(url, ahrefs_key, from = 'ahrefs_rank', mode = 'domain')
+#' get_ahrefs_data(url, ahrefs_key, from = 'metrics_extended', mode = 'exact')
+#' get_ahrefs_data(url, ahrefs_key, from = 'refdomains', mode = 'prefix', limit = 10)
+#'
+#' get_ahrefs_data(url, ahrefs_key,
+#'    mode = 'exact',
+#'    from = 'refdomains',
+#'    having = make_condition('domain_rating', '>', 30),
+#'    order  = make_order('domain_rating', 'desc'),
+#'    limit = 10)
 #' }
 get_ahrefs_data <- function(target,
                             token,
@@ -44,8 +52,6 @@ get_ahrefs_data <- function(target,
 
   # Change select to format wanted by API
   if (!is.null(select)) select <- paste0(select, collapse = ',')
-
-  # Check having and where
 
   parameters <- list(
     target    = target,
@@ -75,16 +81,12 @@ get_ahrefs_data <- function(target,
   # Check for errors
   httr::stop_for_status(response)
 
-  if (httr::http_type(response) != 'application/json') {
-    stop('API did not return json', call. = FALSE)
-  }
-
   # Parse content
   content <- httr::content(response, 'text', encoding = 'utf-8')
   parsed  <- jsonlite::fromJSON(content, simplifyVector = FALSE)
 
   # More error checking
-  if (!is.null(parsed$error)) stop('API returned error: ', content$error)
+  if (!is.null(parsed$error)) stop('API returned error: ', parsed$error)
 
   return(structure(
     list(
